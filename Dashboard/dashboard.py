@@ -75,4 +75,4 @@ with tab1:
 
 with tab2:
     st.plotly_chart(fig3, use_container_width=True)
-    st.plotly_chart(fig3, use_container_width=True)
+    st.plotly_chart(fig4, use_container_width=True)
