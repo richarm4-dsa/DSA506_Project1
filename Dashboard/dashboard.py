@@ -60,7 +60,7 @@ pH_hourly = ph_or_df.resample('h').mean()
 pco2_pH_or_synced = pd.merge(pco2_hourly,pH_hourly,left_index=True,right_index=True,how='outer')
 
 fig3o = px.scatter(data_frame=pco2_pH_or_synced, x='partial_pressure_co2_ssw', y='pH', 
-                   title=f'pH vs Partial Pressure of CO2 (pCOw) - {platform}',
+                   title=f'pH vs Partial Pressure of CO2 (pCO2) - {platform}',
                    labels={'partial_pressure_co2_ssw':'Pressure (microatm)'})
 fig3o.add_hline(sea_nominal_pH)
 
@@ -99,7 +99,10 @@ tab1, tab2, tab3 = st.tabs(["Oregon Shelf Mooring", "Washington Shelf Mooring", 
 # Oregon
 with tab1:
     st.header("Oregon Shelf Mooring")
-    st.subheader(f"{min_date_or} - {max_date_or}")
+    st.subheader(f"Deployed {min_date_or} through {max_date_or}")
+    st.markdown("""
+    As the amount of CO2 in the atmosphere increases, more of it is absorbed by the ocean, which becomes more acidic.
+    """)
     st.plotly_chart(fig1o, use_container_width=True)
     st.plotly_chart(fig2o, use_container_width=True)
     st.plotly_chart(fig3o, use_container_width=True)
@@ -107,7 +110,10 @@ with tab1:
 # Washington
 with tab2:
     st.header("Washington Shelf Mooring")
-    st.subheader(f"{min_date_wa} - {max_date_wa}")
+    st.subheader(f"Deployed {min_date_wa} throughow {max_date_wa}")
+    st.markdown("""
+    As the amount of CO2 in the atmosphere increases, more of it is absorbed by the ocean, which becomes more acidic.
+    """)
     st.plotly_chart(fig1w, use_container_width=True)
     st.plotly_chart(fig2w, use_container_width=True)
     st.plotly_chart(fig3w, use_container_width=True)
