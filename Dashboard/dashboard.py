@@ -110,7 +110,7 @@ with tab1:
 # Washington
 with tab2:
     st.header("Washington Shelf Mooring")
-    st.subheader(f"Deployed {min_date_wa} throughow {max_date_wa}")
+    st.subheader(f"Deployed {min_date_wa} through {max_date_wa}")
     st.markdown("""
     As the amount of CO2 in the atmosphere increases, more of it is absorbed by the ocean, which becomes more acidic.
     """)
