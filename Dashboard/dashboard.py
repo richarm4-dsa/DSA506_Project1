@@ -27,6 +27,7 @@ pco2_wa_df['time'] = pd.to_datetime(pco2_wa_df['time'])
 
 ph_wa = data_path / "ooi_washington_shelf_pH.csv"
 ph_wa_df = pd.read_csv(ph_wa)
+ph_wa_df.loc[ph_wa_df['pH'] < 0, 'pH'] = np.nan  # Remove anomoly; apparent sensor malfunction
 ph_wa_df['time'] = pd.to_datetime(ph_wa_df['time'])
 
 # Streamlit and plots
