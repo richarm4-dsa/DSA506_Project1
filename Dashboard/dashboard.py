@@ -38,8 +38,8 @@ sea_nominal_pH = 8.1
 
 # Oregon
 platform = 'Oregon Shelf Mooring'
-min_date_or = ph_or_df['time'].min().strftime('%m-%Y')
-max_date_or = ph_or_df['time'].max().strftime('%m-%Y')
+min_date_or = "April 2015"  #ph_or_df['time'].min().strftime('%m-%Y')
+max_date_or = "June 2026" # ph_or_df['time'].max().strftime('%m-%Y')
 fig1o = px.line(ph_or_df,x='time',y='pH',
         title=f'Seawater pH, {platform}')
 fig1o.add_hline(sea_nominal_pH)
@@ -67,8 +67,8 @@ fig3o.add_hline(sea_nominal_pH)
 
 #Washington
 platform = 'Washington Shelf Mooring'
-min_date_wa = ph_wa_df['time'].min().strftime('%m-%Y')
-max_date_wa = ph_wa_df['time'].max().strftime('%m-%Y')
+min_date_wa = "April 2015" #ph_wa_df['time'].min().strftime('%m-%Y')
+max_date_wa = "September 2025" #ph_wa_df['time'].max().strftime('%m-%Y')
 fig1w = px.line(ph_wa_df,x='time',y='pH',
         title=f'Seawater pH, {platform}')
 fig1w.add_hline(sea_nominal_pH)
