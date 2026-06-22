@@ -93,7 +93,8 @@ pH_hourly = ph_wa_df.resample('h').mean()
 pco2_pH_wa_synced = pd.merge(pco2_hourly,pH_hourly,left_index=True,right_index=True,how='outer')
 
 fig3w = px.scatter(data_frame=pco2_pH_wa_synced, x='partial_pressure_co2_ssw', y='pH', 
-                   title=f'pH vs pCO2 ({min_date} - {max_date}) - {platform}')
+                   title=f'pH vs pCO2 ({min_date} - {max_date}) - {platform}',
+                   labels={'partial_pressure_co2_ssw':'Pressure (microatm)'})
 fig3w.add_hline(sea_nominal_pH)
 
 # Layout - Using Tabs to Display Multiple Plots
