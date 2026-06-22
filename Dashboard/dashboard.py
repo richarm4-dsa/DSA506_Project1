@@ -116,11 +116,23 @@ with tab2:
 with tab3:
     st.header("About")
     st.subheader("Data Sources")
-    st.markdown("NSF Ocean Observatories Initiative. Coastal Endurance Oregon Shelf Surface Mooring data from 2015-04-01 to 2026-06-15. Accessed on 2026-06-20.  
-    https://dataexplorer.oceanobservatories.org/#ooi/array/CE/subsite/CE02SHSM")
-    st.markdown("NSF Ocean Observatories Initiative. Coastal Endurance Washington Shelf Surface Mooring data from 2015-04-01 to 2025-09-18. Accessed on 2026-06-20.  
-    https://dataexplorer.oceanobservatories.org/#ooi/array/CE/subsite/CE07SHSM")
-    st.markdown("Wingard, C., Dever, E., & Fram, J. (2025). 10 Years of Quality Controlled Carbonate Measurements from the NSF Ocean Observatories Initiative (OOI) Coastal Endurance Array (v1.0.0) [Data set]. Zenodo.   
-    https://doi.org/10.5281/zenodo.17883448")
+    st.markdown("""
+    This dashboard provides real-time data visualizations to track team metrics, 
+    performance goals, and historical trends. Built purely in Python using [Streamlit](https://streamlit.io), 
+    it eliminates the need for complex frontend code to speed up data delivery.
+    """)
+        
+    st.markdown("""
+    NSF Ocean Observatories Initiative. Coastal Endurance Oregon Shelf Surface Mooring data from 2015-04-01 to 2026-06-15. Accessed on 2026-06-20.  
+    https://dataexplorer.oceanobservatories.org/#ooi/array/CE/subsite/CE02SHSM
+    """)
+    st.markdown("""
+    NSF Ocean Observatories Initiative. Coastal Endurance Washington Shelf Surface Mooring data from 2015-04-01 to 2025-09-18. Accessed on 2026-06-20.  
+    https://dataexplorer.oceanobservatories.org/#ooi/array/CE/subsite/CE07SHSM
+    """)
+    st.markdown("""
+    Wingard, C., Dever, E., & Fram, J. (2025). 10 Years of Quality Controlled Carbonate Measurements from the NSF Ocean Observatories Initiative (OOI) Coastal Endurance Array (v1.0.0) [Data set]. Zenodo.   
+    https://doi.org/10.5281/zenodo.17883448
+    """)
 
 
