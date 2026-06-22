@@ -31,7 +31,7 @@ ph_wa_df.loc[ph_wa_df['pH'] < 0, 'pH'] = np.nan  # Remove anomoly; apparent sens
 ph_wa_df['time'] = pd.to_datetime(ph_wa_df['time'])
 
 # Streamlit and plots
-st.title("📊 Ocean Observatories Initiative (OOI) - Highlights from the Coastal Endurance Array")
+st.title("📊 Ocean Acidification due to Stored pCO2 from the OOI Coastal Endurance Array")
 
 # Oregon
 sea_nominal_pH = 8.1
