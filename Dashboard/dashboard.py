@@ -99,7 +99,7 @@ fig3w = px.scatter(data_frame=pco2_pH_wa_synced, x='partial_pressure_co2_ssw', y
 fig3w.add_hline(sea_nominal_pH)
 
 # Layout - Using Tabs to Display Multiple Plots
-tab1, tab2 = st.tabs(["Oregon Shelf Mooring", "Washington Shelf Mooring"])
+tab1, tab2, tab3 = st.tabs(["Oregon Shelf Mooring", "Washington Shelf Mooring", "About"])
 
 # Oregon
 with tab1:
@@ -112,3 +112,15 @@ with tab2:
     st.plotly_chart(fig1w, use_container_width=True)
     st.plotly_chart(fig2w, use_container_width=True)
     st.plotly_chart(fig3w, use_container_width=True)
+
+with tab3:
+    st.header("About")
+    st.subheader("Data Sources")
+    st.markdown("NSF Ocean Observatories Initiative. Coastal Endurance Oregon Shelf Surface Mooring data from 2015-04-01 to 2026-06-15. Accessed on 2026-06-20.  
+    https://dataexplorer.oceanobservatories.org/#ooi/array/CE/subsite/CE02SHSM")
+    st.markdown("NSF Ocean Observatories Initiative. Coastal Endurance Washington Shelf Surface Mooring data from 2015-04-01 to 2025-09-18. Accessed on 2026-06-20.  
+    https://dataexplorer.oceanobservatories.org/#ooi/array/CE/subsite/CE07SHSM")
+    st.markdown("Wingard, C., Dever, E., & Fram, J. (2025). 10 Years of Quality Controlled Carbonate Measurements from the NSF Ocean Observatories Initiative (OOI) Coastal Endurance Array (v1.0.0) [Data set]. Zenodo.   
+    https://doi.org/10.5281/zenodo.17883448")
+
+
