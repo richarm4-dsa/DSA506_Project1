@@ -38,16 +38,14 @@ sea_nominal_pH = 8.1
 
 # Oregon
 platform = 'Oregon Shelf Mooring'
-min_date = ph_or_df['time'].min().strftime('%m-%Y')
-max_date = ph_or_df['time'].max().strftime('%m-%Y')
+min_date_or = ph_or_df['time'].min().strftime('%m-%Y')
+max_date_or = ph_or_df['time'].max().strftime('%m-%Y')
 fig1o = px.line(ph_or_df,x='time',y='pH',
-        title=f'Seawater pH ({min_date} - {max_date}), {platform}')
+        title=f'Seawater pH, {platform}')
 fig1o.add_hline(sea_nominal_pH)
 
-min_date = ph_or_df['time'].min().strftime('%m-%Y')
-max_date = ph_or_df['time'].max().strftime('%m-%Y')
 fig2o = px.line(data_frame=pco2_or_df,x='time',y='partial_pressure_co2_ssw',
-        title=f'Partial Pressure of CO2 (pCO2) ({min_date} - {max_date}), {platform}',
+        title=f'Partial Pressure of CO2 (pCO2), {platform}',
         labels={'partial_pressure_co2_ssw':'Pressure (microatm)'})
 
 pco2_or_df.set_index('time',inplace=True)
@@ -62,24 +60,21 @@ pH_hourly = ph_or_df.resample('h').mean()
 pco2_pH_or_synced = pd.merge(pco2_hourly,pH_hourly,left_index=True,right_index=True,how='outer')
 
 fig3o = px.scatter(data_frame=pco2_pH_or_synced, x='partial_pressure_co2_ssw', y='pH', 
-                   title=f'pH vs Partial Pressure of CO2 (pCOw) ({min_date} - {max_date}) - {platform}',
+                   title=f'pH vs Partial Pressure of CO2 (pCOw) - {platform}',
                    labels={'partial_pressure_co2_ssw':'Pressure (microatm)'})
 fig3o.add_hline(sea_nominal_pH)
 
 
 #Washington
 platform = 'Washington Shelf Mooring'
-min_date = ph_wa_df['time'].min().strftime('%m-%Y')
-max_date = ph_wa_df['time'].max().strftime('%m-%Y')
+min_date_wa = ph_wa_df['time'].min().strftime('%m-%Y')
+max_date_wa = ph_wa_df['time'].max().strftime('%m-%Y')
 fig1w = px.line(ph_wa_df,x='time',y='pH',
-        title=f'Seawater pH ({min_date} - {max_date}), {platform}')
+        title=f'Seawater pH, {platform}')
 fig1w.add_hline(sea_nominal_pH)
 
-
-min_date = ph_wa_df['time'].min().strftime('%m-%Y')
-max_date = ph_wa_df['time'].max().strftime('%m-%Y')
 fig2w = px.line(data_frame=pco2_wa_df,x='time',y='partial_pressure_co2_ssw',
-        title=f'Partial Pressure of CO2 (pCO2) ({min_date} - {max_date}), {platform}',
+        title=f'Partial Pressure of CO2 (pCO2), {platform}',
         labels={'partial_pressure_co2_ssw':'Pressure (microatm)'})
 
 pco2_wa_df.set_index('time',inplace=True)
@@ -94,7 +89,7 @@ pH_hourly = ph_wa_df.resample('h').mean()
 pco2_pH_wa_synced = pd.merge(pco2_hourly,pH_hourly,left_index=True,right_index=True,how='outer')
 
 fig3w = px.scatter(data_frame=pco2_pH_wa_synced, x='partial_pressure_co2_ssw', y='pH', 
-                   title=f'pH vs Partial Pressure of CO2 (pCO2) ({min_date} - {max_date}) - {platform}',
+                   title=f'pH vs Partial Pressure of CO2 (pCO2) - {platform}',
                    labels={'partial_pressure_co2_ssw':'Pressure (microatm)'})
 fig3w.add_hline(sea_nominal_pH)
 
@@ -103,25 +98,28 @@ tab1, tab2, tab3 = st.tabs(["Oregon Shelf Mooring", "Washington Shelf Mooring", 
 
 # Oregon
 with tab1:
+    st.header("Oregon Shelf Mooring")
+    st.subheader(f"{min_date_or} - {max_date_or}")
     st.plotly_chart(fig1o, use_container_width=True)
     st.plotly_chart(fig2o, use_container_width=True)
     st.plotly_chart(fig3o, use_container_width=True)
 
 # Washington
 with tab2:
+    st.header("Washington Shelf Mooring")
+    st.subheader(f"{min_date_wa} - {max_date_wa}")
     st.plotly_chart(fig1w, use_container_width=True)
     st.plotly_chart(fig2w, use_container_width=True)
     st.plotly_chart(fig3w, use_container_width=True)
 
 with tab3:
     st.header("About")
-    st.subheader("Data Sources")
     st.markdown("""
-    This dashboard provides real-time data visualizations to track team metrics, 
-    performance goals, and historical trends. Built purely in Python using [Streamlit](https://streamlit.io), 
-    it eliminates the need for complex frontend code to speed up data delivery.
+    This dashboard visualizes sensor data from two platforms in the Ocean Observatories Inititative (OOI) Coastal Endurance Array, one of nine oceanic sensor
+    arrays around the world deployed and maintained by the US National Science Foundation to collect oceanic and atmospheric data for public use.
     """)
-        
+
+    st.subheader("Data Sources")
     st.markdown("""
     NSF Ocean Observatories Initiative. Coastal Endurance Oregon Shelf Surface Mooring data from 2015-04-01 to 2026-06-15. Accessed on 2026-06-20.  
     https://dataexplorer.oceanobservatories.org/#ooi/array/CE/subsite/CE02SHSM
